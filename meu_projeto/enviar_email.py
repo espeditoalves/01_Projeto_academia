@@ -1,5 +1,5 @@
 import win32com.client as win32
-from functions import *
+from scripts.functions import *
 
 def enviar_email_outlook(destinatarios, assunto, dataframe_anexo, imagem1, imagem2):
     # Criar a integração com o Outlook
@@ -36,7 +36,7 @@ def enviar_email_outlook(destinatarios, assunto, dataframe_anexo, imagem1, image
 destinatarios = ["espeditoa100@gmail.com", "janainavdm@gmail.com"]
 assunto = "Projeto Treino Firme - Resultados da Semana"
 dataframe_anexo, data_formatada = analisa_excel()
-imagem1 = f'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/graficos/{data_formatada}_grafico_seaborn_Espedito.png'
-imagem2 = f'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/graficos/{data_formatada}_grafico_seaborn_Janaina.png'
+imagem1 = f'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/meu_projeto/graficos/{data_formatada}_grafico_seaborn_Espedito.png'
+imagem2 = f'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/meu_projeto/graficos/{data_formatada}_grafico_seaborn_Janaina.png'
 
 enviar_email_outlook(destinatarios, assunto, dataframe_anexo, imagem1, imagem2)

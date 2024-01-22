@@ -20,7 +20,7 @@ def cria_grafico(base_dados, nome, data):
     plt.ylabel('Contagem')
     plt.title(f'Contagem de dias Pagos e dias de Falha por Mês - {nome}')
     # Salvando o gráfico como imagem (por exemplo, formato PNG)
-    path = 'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/graficos/'
+    path = 'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/meu_projeto/graficos/'
     plt.savefig(f'{path}{data}_grafico_seaborn_{nome}.png')
 
 
@@ -40,6 +40,7 @@ def analisa_excel():
     # df_tabela_filtrada['Dia_Semana'] = df_tabela_filtrada['Data'].dt.day_name()
     # df_tabela_filtrada['Mes'] = df_tabela_filtrada['Data'].dt.month_name()  
     # df_tabela_filtrada['Ano'] = df_tabela_filtrada['Data'].dt.year
+    df_tabela_filtrada = df_tabela_filtrada.copy()
     df_tabela_filtrada.loc[:, 'Dia_Semana'] = df_tabela_filtrada['Data'].dt.day_name()
     df_tabela_filtrada.loc[:, 'Mes'] = df_tabela_filtrada['Data'].dt.month_name()
     df_tabela_filtrada.loc[:, 'Ano'] = df_tabela_filtrada['Data'].dt.year
