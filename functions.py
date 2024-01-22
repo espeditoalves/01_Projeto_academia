@@ -20,12 +20,13 @@ def cria_grafico(base_dados, nome, data):
     plt.ylabel('Contagem')
     plt.title(f'Contagem de dias Pagos e dias de Falha por Mês - {nome}')
     # Salvando o gráfico como imagem (por exemplo, formato PNG)
-    plt.savefig(f'{data}_grafico_seaborn_{nome}.png')
+    path = 'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/graficos/'
+    plt.savefig(f'{path}{data}_grafico_seaborn_{nome}.png')
 
 
 
 def analisa_excel():
-    caminho = "C:/Users/esped/OneDrive/2.Contas_casa/2024_Treino_Marombeiros.xlsx"
+    caminho = "C:/Users/esped/OneDrive/2.Contas_casa/2024_Treinos.xlsx"
     colunas = ['Data', 'Janaina', 'Espedito']
     df_tabela = pd.read_excel(io=caminho, sheet_name='Base', usecols=colunas)
     
@@ -36,9 +37,13 @@ def analisa_excel():
     df_tabela_filtrada = df_tabela[df_tabela['Data'] <= data_formatada]
     
     # Crie as colunas: Dia_da_semana, Mes, e Ano
-    df_tabela_filtrada['Dia_Semana'] = df_tabela_filtrada['Data'].dt.day_name()
-    df_tabela_filtrada['Mes'] = df_tabela_filtrada['Data'].dt.month_name()  
-    df_tabela_filtrada['Ano'] = df_tabela_filtrada['Data'].dt.year
+    # df_tabela_filtrada['Dia_Semana'] = df_tabela_filtrada['Data'].dt.day_name()
+    # df_tabela_filtrada['Mes'] = df_tabela_filtrada['Data'].dt.month_name()  
+    # df_tabela_filtrada['Ano'] = df_tabela_filtrada['Data'].dt.year
+    df_tabela_filtrada.loc[:, 'Dia_Semana'] = df_tabela_filtrada['Data'].dt.day_name()
+    df_tabela_filtrada.loc[:, 'Mes'] = df_tabela_filtrada['Data'].dt.month_name()
+    df_tabela_filtrada.loc[:, 'Ano'] = df_tabela_filtrada['Data'].dt.year
+
 
     # Cria 2 tabelas temporarias
     df_janaina = df_tabela_filtrada.drop(columns=['Espedito']).rename(columns={'Janaina': 'Status'})

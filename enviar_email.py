@@ -36,7 +36,7 @@ def enviar_email_outlook(destinatarios, assunto, dataframe_anexo, imagem1, image
 destinatarios = ["espeditoa100@gmail.com", "janainavdm@gmail.com"]
 assunto = "Projeto Treino Firme - Resultados da Semana"
 dataframe_anexo, data_formatada = analisa_excel()
-imagem1 = f'C:/Users/esped/OneDrive/0.Treinamentos e Cursos/0.Códigos e Scripts/2.Central de Conhecimentos/Projetos_pessoais/{data_formatada}_grafico_seaborn_Espedito.png'
-imagem2 = f'C:/Users/esped/OneDrive/0.Treinamentos e Cursos/0.Códigos e Scripts/2.Central de Conhecimentos/Projetos_pessoais/{data_formatada}_grafico_seaborn_Janaina.png'
+imagem1 = f'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/graficos/{data_formatada}_grafico_seaborn_Espedito.png'
+imagem2 = f'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/graficos/{data_formatada}_grafico_seaborn_Janaina.png'
 
 enviar_email_outlook(destinatarios, assunto, dataframe_anexo, imagem1, imagem2)
