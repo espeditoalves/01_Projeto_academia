@@ -16,6 +16,17 @@ openpyxl = "^3.1.2"
 jupyter = "^1.0.0"
 pyarrow = "^15.0.0"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+pytest-cov = "^4.1.0"
+blue = "^0.9.1"
+isort = "^5.13.2"
+taskipy = "^1.12.2"
+
+
+[tool.poetry.group.doc.dependencies]
+mkdocs-material = "^9.5.4"
+
 
 [build-system]
 requires = ["poetry-core"]
