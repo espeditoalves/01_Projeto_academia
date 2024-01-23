@@ -33,10 +33,22 @@ def enviar_email_outlook(destinatarios, assunto, dataframe_anexo, imagem1, image
     email.Send()
     print("Email Enviado")
 
-destinatarios = ["espeditoa100@gmail.com", "janainavdm@gmail.com"]
-assunto = "Projeto Treino Firme - Resultados da Semana"
-dataframe_anexo, data_formatada = analisa_excel()
-imagem1 = f'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/meu_projeto/graficos/{data_formatada}_grafico_seaborn_Espedito.png'
-imagem2 = f'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/meu_projeto/graficos/{data_formatada}_grafico_seaborn_Janaina.png'
+# A estrutura __main__ é geralmente usada para determinar se o script está sendo executado como um programa independente 
+# ou se está sendo importado como um módulo em outro script.
+    
+# Dessa forma, quando você executa o script, o bloco if __name__ == "__main__": será verdadeiro, 
+# e a função enviar_email_outlook será chamada. 
+# Se você importar este script como um módulo em outro lugar, o bloco if __name__ == "__main__": será falso, 
+# e a função não será executada automaticamente.
+if __name__ == "__main__":
+    # Se o script estiver sendo executado como um programa independente
 
-enviar_email_outlook(destinatarios, assunto, dataframe_anexo, imagem1, imagem2)
+    # Configuração dos destinatários, assunto, etc.
+    destinatarios = ["espeditoa100@gmail.com"]#, "janainavdm@gmail.com"]
+    assunto = "Projeto Treino Firme - Resultados da Semana"
+    dataframe_anexo, data_formatada = analisa_excel()
+    imagem1 = f'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/meu_projeto/graficos/{data_formatada}_grafico_seaborn_Espedito.png'
+    imagem2 = f'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/meu_projeto/graficos/{data_formatada}_grafico_seaborn_Janaina.png'
+
+    # Chama a função principal
+    enviar_email_outlook(destinatarios, assunto, dataframe_anexo, imagem1, imagem2)
