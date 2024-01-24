@@ -1,7 +1,10 @@
 import win32com.client as win32
 from scripts.functions import *
 
-def enviar_email_outlook(destinatarios, assunto, dataframe_anexo, imagem1, imagem2):
+
+def enviar_email_outlook(
+    destinatarios, assunto, dataframe_anexo, imagem1, imagem2
+):
     # Criar a integração com o Outlook
     outlook = win32.Dispatch('outlook.application')
 
@@ -9,9 +12,10 @@ def enviar_email_outlook(destinatarios, assunto, dataframe_anexo, imagem1, image
     email = outlook.CreateItem(0)
 
     # Configurar as informações do seu e-mail
-    email.To = ";".join(destinatarios)  # Junta os destinatários com ponto e vírgula
+    # Junta os destinatários com ponto e vírgula
+    email.To = ';'.join(destinatarios)
     email.Subject = assunto
-    
+
     # Começo do e-mail
     corpo_email = f"""
     <p>Olá Janaina e Espedito!!</p>
@@ -20,7 +24,7 @@ def enviar_email_outlook(destinatarios, assunto, dataframe_anexo, imagem1, image
     # Adicionar o DataFrame ao corpo do e-mail
     corpo_email += dataframe_anexo.to_html(index=False)
     # Adiciona o Desfecho
-    corpo_email +=f"""
+    corpo_email += f"""
     <p>Abs,</p>
     <p>Desenvolvedor: Espedito Ferreira Alves</p>
     """
@@ -31,24 +35,27 @@ def enviar_email_outlook(destinatarios, assunto, dataframe_anexo, imagem1, image
     email.Attachments.Add(imagem2)
     # Enviar o e-mail
     email.Send()
-    print("Email Enviado")
+    print('Email Enviado')
 
-# A estrutura __main__ é geralmente usada para determinar se o script está sendo executado como um programa independente 
+
+# A estrutura __main__ é geralmente usada para determinar se o script está sendo executado como um programa independente
 # ou se está sendo importado como um módulo em outro script.
-    
-# Dessa forma, quando você executa o script, o bloco if __name__ == "__main__": será verdadeiro, 
-# e a função enviar_email_outlook será chamada. 
-# Se você importar este script como um módulo em outro lugar, o bloco if __name__ == "__main__": será falso, 
+
+# Dessa forma, quando você executa o script, o bloco if __name__ == "__main__": será verdadeiro,
+# e a função enviar_email_outlook será chamada.
+# Se você importar este script como um módulo em outro lugar, o bloco if __name__ == "__main__": será falso,
 # e a função não será executada automaticamente.
-if __name__ == "__main__":
+if __name__ == '__main__':
     # Se o script estiver sendo executado como um programa independente
 
     # Configuração dos destinatários, assunto, etc.
-    destinatarios = ["espeditoa100@gmail.com"]#, "janainavdm@gmail.com"]
-    assunto = "Projeto Treino Firme - Resultados da Semana"
+    destinatarios = ['espeditoa100@gmail.com']  # 'janainavdm@gmail.com']
+    assunto = 'Projeto Treino Firme - Resultados da Semana'
     dataframe_anexo, data_formatada = analisa_excel()
     imagem1 = f'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/meu_projeto/graficos/{data_formatada}_grafico_seaborn_Espedito.png'
     imagem2 = f'C:/Users/esped/OneDrive/Documentos/_repositorios_/Projetos/01_Projeto_academia/meu_projeto/graficos/{data_formatada}_grafico_seaborn_Janaina.png'
 
     # Chama a função principal
-    enviar_email_outlook(destinatarios, assunto, dataframe_anexo, imagem1, imagem2)
+    enviar_email_outlook(
+        destinatarios, assunto, dataframe_anexo, imagem1, imagem2
+    )
